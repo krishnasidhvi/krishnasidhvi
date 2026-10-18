@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 110" width="100%" height="100%">
+  <defs>
+    <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913"/>
+      <stop offset="50%" stop-color="#0A1122"/>
+      <stop offset="100%" stop-color="#0F1B35"/>
+    </linearGradient>
+
+    <linearGradient id="footer-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#F59E0B" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#FDE68A" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#F59E0B" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    .footer-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .footer-mono {
+      font-family: "SF Mono", "Fira Code", "Courier New", monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+    @keyframes pulse-node {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+    .diamond-pulse {
+      transform-origin: 600px 30px;
+      animation: pulse-node 3s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="110" rx="12" fill="url(#footer-bg)"/>
+  <rect x="1" y="1" width="1198" height="108" rx="11" fill="none" stroke="#1E293B" stroke-width="1.2" stroke-opacity="0.7"/>
+
+  <!-- Top Accent Beam Line -->
+  <line x1="120" y1="30" x2="1080" y2="30" stroke="url(#footer-beam)" stroke-width="2" filter="url(#glow)"/>
+  <line x1="240" y1="30" x2="960" y2="30" stroke="#FDE68A" stroke-width="1"/>
+
+  <!-- Center Decorative Diamond Node -->
+  <g class="diamond-pulse">
+    <polygon points="600,21 609,30 600,39 591,30" fill="#0A1122" stroke="#F59E0B" stroke-width="1.8"/>
+    <circle cx="600" cy="30" r="3" fill="#FDE68A"/>
+  </g>
+
+  <!-- Left / Right Geometric Flanks -->
+  <circle cx="120" cy="30" r="2.5" fill="#38BDF8"/>
+  <circle cx="1080" cy="30" r="2.5" fill="#38BDF8"/>
+
+  <!-- Core Message -->
+  <text x="600" y="66" fill="#F8FAFC" class="footer-text" text-anchor="middle">
+    Architecting Resilient Data Pipelines <tspan fill="#F59E0B">•</tspan> Transforming Complex Data Into Intelligence
+  </text>
+
+  <!-- Copyright / Attribution -->
+  <text x="600" y="88" fill="#64748B" class="footer-mono" text-anchor="middle">
+    DESIGNED WITH ROYAL NAVY &amp; AMBER GOLD SYSTEM // KRISHNA SIDHVI NEKKANTI
+  </text>
+</svg>
