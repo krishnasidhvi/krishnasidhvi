@@ -221,10 +221,9 @@ Certifications:
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/krishna-sidhvi-nekkanti/"><img src="assets/btn/btn-linkedin.svg" width="23%" alt="LinkedIn" /></a>
-  <a href="mailto:krishnanekkanti04@gmail.com"><img src="assets/btn/btn-email.svg" width="23%" alt="Email" /></a>
-  <a href="https://github.com/krishnasidhvi"><img src="assets/btn/btn-github.svg" width="23%" alt="GitHub" /></a>
-  <a href="https://wa.me/REDACTED?text=Hi%20Krishna,%20I%20reviewed%20your%20profile%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity."><img src="assets/btn/btn-whatsapp.svg" width="23%" alt="WhatsApp" /></a>
+  <a href="https://www.linkedin.com/in/krishna-sidhvi-nekkanti/"><img src="assets/btn/btn-linkedin.svg" width="30%" alt="LinkedIn" /></a>
+  <a href="mailto:krishnanekkanti04@gmail.com"><img src="assets/btn/btn-email.svg" width="30%" alt="Email" /></a>
+  <a href="https://github.com/krishnasidhvi"><img src="assets/btn/btn-github.svg" width="30%" alt="GitHub" /></a>
 </p>
 
 <br/>

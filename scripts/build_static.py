@@ -652,7 +652,6 @@ BUTTONS = {
     "btn-linkedin": ("in", "LINKEDIN", SKY),
     "btn-email": ("@", "EMAIL", ROSE),
     "btn-github": ("{}", "GITHUB", TEXT),
-    "btn-whatsapp": ("☏", "WHATSAPP", GREEN),
 }
 
 
