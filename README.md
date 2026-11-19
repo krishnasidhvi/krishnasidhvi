@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.svg" alt="Krishna Sidhvi Nekkanti - Forward Deployment AI Engineer & Enterprise Data Specialist" width="100%" />
+  <img src="assets/hero.svg" alt="Krishna Sidhvi Nekkanti — animated terminal that turns the question 'who is Krishna, and what does he build?' into SQL and returns his roles: Forward Deployment AI Engineer, Data Engineer, Data Analyst" width="100%" />
 </p>
 
 <p align="center">
@@ -14,14 +14,43 @@
 
 ### ✦ Executive Overview
 
-I am a **Forward Deployment AI Engineer and Enterprise Data Specialist** operating at the bleeding edge of **Agentic AI**, **Autonomous Text-to-SQL**, **Model Context Protocol (MCP)**, and **Scalable Cloud Data Architecture**. Currently at **Trida Labs**, I lead customer-facing engineering and enterprise deployment for the AI-native analytics ecosystem, operationalizing **AgentSQL** (agentic Text-to-SQL & dynamic dashboard engine) and **TridaPad** (collaborative data workspace) across mission-critical customer infrastructures.
+I am a **Forward Deployment AI Engineer and Enterprise Data Specialist** working across **Agentic AI**, **LLM Systems**, and **Scalable Cloud Data Architecture**. Currently at **Trida Labs**, I lead customer-facing engineering, deploying AI-powered analytics solutions into enterprise customer environments.
 
-With a rich pedigree delivering high-throughput data engineering and analytics across Fortune 500 environments (**Global Payments**, **Amazon**, **Vanguard**), I specialize in synthesizing frontier LLMs with deterministic, enterprise-grade database systems:
+With a background delivering high-throughput data engineering and analytics in Fortune 500 environments (**Global Payments**, **Amazon**, **Vanguard**), I specialize in pairing LLMs with reliable, enterprise-grade data systems:
 
-* **Autonomous Text-to-SQL & Agentic AI:** Operationalize AgentSQL with schema-aware contextual prompt pipelines and deterministic SQL guardrails, achieving **99%+ syntactic and relational accuracy** on complex multi-table joins while completely eliminating LLM hallucinations.
-* **Model Context Protocol (MCP) Integrations:** Implement and optimize production MCP server integrations that securely bridge frontier LLMs and agentic tools directly to clients' distributed data lakes and warehouses (**PostgreSQL, Snowflake, Databricks, Redshift**).
+* **Agentic AI & LLM Systems:** Build schema-aware prompt pipelines and validation guardrails so LLM-generated queries and answers stay accurate, safe, and grounded in real data.
+* **Cloud Data Integration:** Connect AI workflows to enterprise warehouses and lakes (**PostgreSQL, Snowflake, Databricks, Redshift**) with secure, low-latency access patterns.
 * **Enterprise Reliability & Performance:** Proven track record of improving pipeline uptime and scalability by **+30%**, reducing fraud model false positives by **-15%**, and eliminating transactional data anomalies by **-40% to -50%**.
 * **Security & Multi-Tenant Governance:** Deep expertise configuring enterprise role-based access control (**RBAC**), data masking, and **PCI-DSS** compliance across multi-tenant cloud and on-premise customer deployments.
+
+---
+
+### ✦ How I Build: Raw Data → Trusted Insight
+
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'lineColor':'#F59E0B', 'primaryTextColor':'#F8FAFC', 'edgeLabelBackground':'#0A1326', 'tertiaryTextColor':'#FCA5A5'}}}%%
+flowchart LR
+    SRC["📥 <b>Sources</b><br/>APIs · transactions<br/>event streams · files"]
+    ING["⚙️ <b>Ingest &amp; Transform</b><br/>Kafka · AWS Glue<br/>PySpark · Azure Data Factory"]
+    WH[("🗄️ <b>Warehouse</b><br/>Redshift · Snowflake<br/>PostgreSQL · Databricks")]
+    QG{{"🛡️ <b>Quality Gate</b><br/>validation · reconciliation<br/>RBAC · masking"}}
+    BI["📊 <b>BI &amp; Dashboards</b><br/>Tableau · Power BI"]
+    ML["🧠 <b>ML Models</b><br/>scikit-learn · TensorFlow"]
+    LLM["🤖 <b>LLM Layer</b><br/>plain-English questions<br/>→ validated SQL"]
+
+    SRC --> ING --> WH --> QG
+    QG --> BI
+    QG --> ML
+    QG --> LLM
+    QG -. "❌ reject &amp; alert" .-> ING
+
+    classDef navy fill:#0A1326,stroke:#1E293B,color:#F8FAFC,stroke-width:1.5px
+    classDef gold fill:#0A1326,stroke:#F59E0B,color:#FDE68A,stroke-width:2px
+    classDef sky  fill:#0A1326,stroke:#38BDF8,color:#E0F2FE,stroke-width:1.5px
+    class SRC,ING navy
+    class WH,QG gold
+    class BI,ML,LLM sky
+```
 
 ---
 
@@ -45,13 +74,13 @@ With a rich pedigree delivering high-throughput data engineering and analytics a
         <b>Forward Deployment AI Engineer</b>
       </td>
       <td>
-        • <b>Enterprise Deployment:</b> Spearheading customer-facing engineering and enterprise deployment for Trida Labs’ AI-native analytics ecosystem, including <b>TridaPad</b> (collaborative data workspace) and <b>AgentSQL</b> (autonomous Text-to-SQL &amp; dashboard engine).<br/>
-        • <b>Autonomous Text-to-SQL:</b> Deploy and operationalize <b>AgentSQL</b> across enterprise customer architectures, enabling non-technical stakeholders to autonomously generate production-grade SQL and dynamic dashboards from natural language queries.<br/>
-        • <b>Model Context Protocol (MCP):</b> Implement and optimize <b>MCP server integrations</b>, seamlessly connecting external LLMs and agentic AI tools directly to clients' distributed databases (<b>PostgreSQL, Snowflake, Databricks, Redshift</b>).<br/>
-        • <b>Deterministic Guardrails:</b> Design schema-aware contextual prompt pipelines and deterministic SQL guardrails, minimizing LLM hallucinations and ensuring <b>99%+ syntactic and relational accuracy</b> on complex multi-table joins.<br/>
-        • <b>Product-Engineering Bridge:</b> Bridge enterprise client requirements with core product engineering, identifying edge-case query patterns, optimizing execution latency, and tailoring real-time analytics collaboration workflows within <b>TridaPad</b>.<br/>
+        • <b>Enterprise Deployment:</b> Leading customer-facing engineering and enterprise deployment of AI-powered analytics solutions across customer environments.<br/>
+        • <b>Natural-Language Analytics:</b> Enabling non-technical stakeholders to explore data and build dashboards from plain-English questions, backed by production-grade SQL.<br/>
+        • <b>LLM &amp; Data Integration:</b> Connecting LLMs and agentic AI workflows to clients' distributed databases (<b>PostgreSQL, Snowflake, Databricks, Redshift</b>).<br/>
+        • <b>Guardrails &amp; Accuracy:</b> Design schema-aware prompt pipelines and SQL validation guardrails that reduce LLM hallucinations on complex multi-table queries.<br/>
+        • <b>Product-Engineering Bridge:</b> Translate enterprise client requirements into product engineering priorities, identifying edge-case query patterns and optimizing execution latency.<br/>
         • <b>Security &amp; RBAC:</b> Configure enterprise role-based access controls (<b>RBAC</b>) and data governance policies to guarantee compliance and security across multi-tenant cloud and on-prem deployments.<br/>
-        <sub><b>Skills:</b> Agentic AI · Text-to-SQL · Model Context Protocol (MCP) · LLM Orchestration · Python · SQL · Enterprise Data Integration · TridaPad · AgentSQL</sub>
+        <sub><b>Skills:</b> Agentic AI · Text-to-SQL · LLM Orchestration · Python · SQL · Enterprise Data Integration · RBAC</sub>
       </td>
     </tr>
     <tr>
@@ -111,18 +140,6 @@ With a rich pedigree delivering high-throughput data engineering and analytics a
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🤖 AgentSQL &amp; MCP Autonomous Enterprise Data Engine</h4>
-      <p><i>Agentic Text-to-SQL orchestration engine connecting frontier LLMs via Model Context Protocol (MCP) to distributed customer data warehouses.</i></p>
-      <ul>
-        <li>Implemented low-latency <b>Model Context Protocol (MCP)</b> server integrations bridging agentic tools directly to <b>PostgreSQL, Snowflake, Databricks, and Redshift</b>.</li>
-        <li>Engineered schema-aware prompt pipelines and deterministic SQL AST validation guardrails, achieving <b>99%+ syntactic and relational join precision</b>.</li>
-        <li>Enabled autonomous natural language generation of production-ready SQL queries and dynamic dashboard visualizations inside <b>TridaPad</b>.</li>
-      </ul>
-      <p>
-        <code>Agentic AI</code> • <code>MCP</code> • <code>Text-to-SQL</code> • <code>Python</code> • <code>PostgreSQL</code> • <code>Snowflake</code> • <code>Deterministic Guardrails</code>
-      </p>
-    </td>
-    <td width="50%" valign="top">
       <h4>💳 Real-Time Payment Streaming &amp; Fraud Detection</h4>
       <p><i>Event-driven fintech analytics pipeline monitoring high-volume transaction streams in real time with sub-second alert latency.</i></p>
       <ul>
@@ -134,8 +151,6 @@ With a rich pedigree delivering high-throughput data engineering and analytics a
         <code>Python</code> • <code>Apache Kafka</code> • <code>AWS Lambda</code> • <code>AWS Redshift</code> • <code>MongoDB</code> • <code>Tableau</code> • <code>PCI-DSS</code>
       </p>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <h4>📊 Chicago Urban Crime Analytics &amp; Predictive Dispatch</h4>
       <p><i>Spatial-temporal machine learning platform modeling municipal incident densities to optimize tactical law enforcement resource allocation.</i></p>
@@ -148,7 +163,9 @@ With a rich pedigree delivering high-throughput data engineering and analytics a
         <code>Python</code> • <code>Scikit-Learn</code> • <code>Pandas</code> • <code>NumPy</code> • <code>Tableau</code> • <code>Geospatial AI</code>
       </p>
     </td>
-    <td width="50%" valign="top">
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
       <h4>🚗 Edge Computer Vision &amp; Vehicle Plate Governance</h4>
       <p><i>Deep Learning computer vision edge pipeline for low-latency vehicle identification and automated traffic flow governance.</i></p>
       <ul>
@@ -171,8 +188,8 @@ With a rich pedigree delivering high-throughput data engineering and analytics a
 
 | Domain | Technologies &amp; Platforms |
 | :--- | :--- |
-| **Agentic AI &amp; LLM Systems** | `AgentSQL` `Model Context Protocol (MCP)` `Text-to-SQL` `LLM Orchestration` `Deterministic SQL Guardrails` `Context Caching` `LangChain` `Hugging Face` `Generative AI` |
-| **Enterprise Cloud &amp; Warehousing** | `TridaPad` `Snowflake` `Databricks` `AWS Redshift` `AWS Glue` `AWS Lambda` `AWS Athena` `AWS Data Pipeline` `Azure Data Factory` `Microsoft Fabric` `Informatica` |
+| **Agentic AI &amp; LLM Systems** | `Text-to-SQL` `LLM Orchestration` `SQL Validation Guardrails` `Context Caching` `LangChain` `Hugging Face` `Generative AI` |
+| **Enterprise Cloud &amp; Warehousing** | `Snowflake` `Databricks` `AWS Redshift` `AWS Glue` `AWS Lambda` `AWS Athena` `AWS Data Pipeline` `Azure Data Factory` `Microsoft Fabric` `Informatica` |
 | **Core Languages &amp; Querying** | `Python` `Advanced SQL (PostgreSQL, Redshift, Snowflake, T-SQL)` `PySpark` `Bash` |
 | **Big Data, Streaming &amp; ETL** | `Apache Spark` `Apache Kafka` `Distributed ETL` `Data Modeling` `Data Quality Validation Frameworks` `Schema Drift Auditing` |
 | **Security, RBAC &amp; Compliance** | `Enterprise RBAC` `Data Governance` `Data Masking` `Multi-Tenant Deployments` `PCI-DSS Compliance` |
@@ -220,7 +237,7 @@ Certifications:
 ### ✦ Connect &amp; Collaborate
 
 <p align="center">
-  Interested in discussing Agentic AI deployment, Model Context Protocol (MCP) integrations, autonomous Text-to-SQL, or distributed data architectures?
+  Interested in discussing Agentic AI, LLM systems, natural-language analytics, or distributed data architectures?
   <br/><br/>
   <a href="https://www.linkedin.com/in/krishna-sidhvi-nekkanti/">
     <img src="https://img.shields.io/badge/LinkedIn-Krishna_Sidhvi_Nekkanti-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn Profile" />

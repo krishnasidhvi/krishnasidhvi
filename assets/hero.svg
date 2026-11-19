@@ -1,212 +1,176 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" height="100%">
   <defs>
-    <!-- Background Gradients -->
+    <!-- Background -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#060913"/>
       <stop offset="50%" stop-color="#0A1122"/>
       <stop offset="100%" stop-color="#0F1B35"/>
     </linearGradient>
-
-    <radialGradient id="amber-glow" cx="80%" cy="25%" r="65%">
-      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.22"/>
-      <stop offset="45%" stop-color="#D97706" stop-opacity="0.08"/>
+    <radialGradient id="amber-glow" cx="85%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.20"/>
+      <stop offset="45%" stop-color="#D97706" stop-opacity="0.07"/>
       <stop offset="100%" stop-color="#060913" stop-opacity="0"/>
     </radialGradient>
-
-    <radialGradient id="cyan-data-glow" cx="15%" cy="85%" r="55%">
-      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.18"/>
-      <stop offset="50%" stop-color="#0369A1" stop-opacity="0.05"/>
+    <radialGradient id="cyan-glow" cx="10%" cy="95%" r="55%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#060913" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Linear Accents -->
     <linearGradient id="gold-text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="40%" stop-color="#F8FAFC"/>
+      <stop offset="45%" stop-color="#F8FAFC"/>
       <stop offset="85%" stop-color="#FDE68A"/>
       <stop offset="100%" stop-color="#F59E0B"/>
     </linearGradient>
-
-    <linearGradient id="gold-beam" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#F59E0B" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#FDE68A" stop-opacity="1"/>
-      <stop offset="80%" stop-color="#F59E0B" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
-    </linearGradient>
-
     <linearGradient id="badge-border" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.4"/>
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.45"/>
       <stop offset="100%" stop-color="#1E293B" stop-opacity="0.6"/>
     </linearGradient>
-
-    <!-- Grid Pattern -->
+    <linearGradient id="term-bar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111C33"/>
+      <stop offset="100%" stop-color="#0B1426"/>
+    </linearGradient>
     <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.45"/>
       <circle cx="40" cy="40" r="1" fill="#F59E0B" fill-opacity="0.25"/>
     </pattern>
 
-    <!-- Filter for Glow Effects -->
-    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-
-    <filter id="subtle-blur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
+    <!-- Typing clip masks (animated width = typing effect) -->
+    <clipPath id="type-q">
+      <rect x="244" y="222" height="26" width="0">
+        <animate attributeName="width" dur="14s" repeatCount="indefinite"
+                 values="0;0;400;400" keyTimes="0;0.04;0.18;1"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-sql">
+      <rect x="86" y="278" height="26" width="0">
+        <animate attributeName="width" dur="14s" repeatCount="indefinite"
+                 values="0;0;600;600" keyTimes="0;0.25;0.42;1"/>
+      </rect>
+    </clipPath>
   </defs>
 
   <style>
-    .font-title {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: 3.5px;
-    }
-    .font-sub {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-weight: 500;
-      letter-spacing: 2px;
-    }
-    .font-mono {
-      font-family: "SF Mono", "Fira Code", "Courier New", monospace;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-    
-    /* Subtle Vector Animations */
-    @keyframes pulse-opacity {
-      0%, 100% { opacity: 0.35; }
-      50% { opacity: 0.85; }
-    }
-    @keyframes orbit-rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes stream-dash {
-      to { stroke-dashoffset: -120; }
-    }
-    @keyframes beam-shimmer {
-      0%, 100% { opacity: 0.6; transform: scaleX(0.95); }
-      50% { opacity: 1; transform: scaleX(1.02); }
-    }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; letter-spacing: 3px; }
+    .sub   { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 500; letter-spacing: 2px; }
+    .mono  { font-family: "SF Mono", "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace; }
+    .kw    { fill: #F59E0B; font-weight: 700; }
+    .id    { fill: #E2E8F0; }
+    .tbl   { fill: #38BDF8; }
+    .num   { fill: #FBBF24; }
 
-    .pulse-element {
-      animation: pulse-opacity 4s ease-in-out infinite;
-    }
-    .stream-line {
-      stroke-dasharray: 8 12;
-      animation: stream-dash 4s linear infinite;
-    }
-    .stream-line-fast {
-      stroke-dasharray: 6 14;
-      animation: stream-dash 2.5s linear infinite;
-    }
-    .orbit-ring {
-      transform-origin: 980px 180px;
-      animation: orbit-rotate 28s linear infinite;
-    }
-    .beam-animate {
-      transform-origin: 600px 330px;
-      animation: beam-shimmer 3.5s ease-in-out infinite;
-    }
+    @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    .pulse { animation: pulse 3s ease-in-out infinite; }
+    .blink { animation: blink 1s step-end infinite; }
   </style>
 
-  <!-- Deep Base Surface -->
-  <rect width="1200" height="380" rx="16" fill="url(#bg-grad)"/>
-  <rect width="1200" height="380" rx="16" fill="url(#amber-glow)"/>
-  <rect width="1200" height="380" rx="16" fill="url(#cyan-data-glow)"/>
+  <!-- Base surface -->
+  <rect width="1200" height="500" rx="16" fill="url(#bg-grad)"/>
+  <rect width="1200" height="500" rx="16" fill="url(#amber-glow)"/>
+  <rect width="1200" height="500" rx="16" fill="url(#cyan-glow)"/>
+  <rect width="1200" height="500" rx="16" fill="url(#grid-pattern)"/>
+  <rect x="1" y="1" width="1198" height="498" rx="15" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+  <line x1="60" y1="1" x2="360" y2="1" stroke="#F59E0B" stroke-width="2.5" stroke-opacity="0.7"/>
+  <line x1="840" y1="1" x2="1140" y2="1" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.5"/>
 
-  <!-- Technical Grid Overlay -->
-  <rect width="1200" height="380" rx="16" fill="url(#grid-pattern)"/>
-
-  <!-- Outer Card Border -->
-  <rect x="1" y="1" width="1198" height="378" rx="15" fill="none" stroke="#1E293B" stroke-width="1.5" stroke-opacity="0.8"/>
-
-  <!-- Top Accent Border Beam -->
-  <line x1="80" y1="1" x2="380" y2="1" stroke="#F59E0B" stroke-width="2.5" stroke-opacity="0.7"/>
-  <line x1="820" y1="1" x2="1120" y2="1" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.5"/>
-
-  <!-- Orbital Geometric Constellation (Right Side Graphic) -->
-  <g class="orbit-ring" opacity="0.45">
-    <circle cx="980" cy="180" r="120" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 6"/>
-    <circle cx="980" cy="180" r="85" fill="none" stroke="#F59E0B" stroke-width="1.2" stroke-opacity="0.6"/>
-    <circle cx="980" cy="180" r="50" fill="none" stroke="#38BDF8" stroke-width="0.8" stroke-opacity="0.5" stroke-dasharray="2 4"/>
-    
-    <!-- Orbital Nodes -->
-    <circle cx="1065" cy="180" r="4.5" fill="#FBBF24" filter="url(#subtle-blur)"/>
-    <circle cx="980" cy="95" r="3.5" fill="#38BDF8"/>
-    <circle cx="920" cy="225" r="3" fill="#F59E0B"/>
+  <!-- ============ Identity ============ -->
+  <g transform="translate(60, 36)">
+    <rect width="262" height="28" rx="14" fill="#0D1930" stroke="url(#badge-border)" stroke-width="1.2"/>
+    <circle cx="14" cy="14" r="4" fill="#10B981" class="pulse"/>
+    <text x="26" y="18" fill="#FBBF24" class="mono" font-size="10.5" font-weight="600" letter-spacing="1.2">DATA ENGINEERING × APPLIED AI</text>
   </g>
 
-  <!-- Central Constellation Core -->
-  <circle cx="980" cy="180" r="16" fill="#0A1122" stroke="#F59E0B" stroke-width="2"/>
-  <circle cx="980" cy="180" r="7" fill="#FBBF24" class="pulse-element"/>
-
-  <!-- Animated Data Stream Lines (Flowing into constellation) -->
-  <path d="M 620 120 C 750 120, 840 160, 960 176" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-opacity="0.6" class="stream-line"/>
-  <path d="M 580 180 C 720 180, 820 180, 960 180" fill="none" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5" class="stream-line-fast"/>
-  <path d="M 640 240 C 760 240, 850 200, 960 184" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-opacity="0.4" class="stream-line"/>
-
-  <!-- Identity Pill Tag -->
-  <g transform="translate(80, 52)">
-    <rect width="275" height="28" rx="14" fill="#0D1930" stroke="url(#badge-border)" stroke-width="1.2"/>
-    <circle cx="14" cy="14" r="4" fill="#10B981" class="pulse-element"/>
-    <text x="26" y="18" fill="#FBBF24" class="font-mono" font-size="10.5" font-weight="600" letter-spacing="1.2">FORWARD DEPLOYMENT AI &amp; DATA</text>
-  </g>
-
-  <!-- Name / Title -->
-  <text x="80" y="132" fill="url(#gold-text-grad)" class="font-title" font-size="39">KRISHNA SIDHVI NEKKANTI</text>
-
-  <!-- Positioning Subtitle -->
-  <text x="82" y="172" fill="#94A3B8" class="font-sub" font-size="15.5">
-    FORWARD DEPLOYMENT AI ENGINEER <tspan fill="#F59E0B">•</tspan> AGENTIC AI &amp; MCP <tspan fill="#F59E0B">•</tspan> ENTERPRISE DATA PLATFORMS
+  <text x="60" y="114" fill="url(#gold-text-grad)" class="title" font-size="38">KRISHNA SIDHVI NEKKANTI</text>
+  <text x="62" y="150" fill="#94A3B8" class="sub" font-size="15">
+    FORWARD DEPLOYMENT AI ENGINEER <tspan fill="#F59E0B">•</tspan> DATA &amp; LLM SYSTEMS
   </text>
 
-  <!-- Narrative Summary Micro-line -->
-  <text x="82" y="206" fill="#CBD5E1" class="font-mono" font-size="12.5" opacity="0.9">
-    Deploying AgentSQL, Model Context Protocol (MCP) integrations, and resilient multi-tenant data pipelines.
-  </text>
-
-  <!-- Key Achievement Metric Cards (Navy & Gold glassmorphic chips) -->
-  <g transform="translate(80, 240)">
-    <!-- Metric 1: SQL Accuracy & Deterministic Guardrails -->
-    <g transform="translate(0, 0)">
-      <rect width="180" height="52" rx="8" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
-      <rect x="0" y="0" width="3" height="52" rx="1.5" fill="#F59E0B"/>
-      <text x="16" y="24" fill="#FBBF24" class="font-title" font-size="17" letter-spacing="0.5">99%+ ACCURACY</text>
-      <text x="16" y="42" fill="#64748B" class="font-mono" font-size="10.5">AgentSQL &amp; Guardrails</text>
+  <!-- Credential chips (right) -->
+  <g class="mono" font-size="11" letter-spacing="1">
+    <g transform="translate(830, 36)">
+      <rect width="310" height="30" rx="7" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
+      <rect width="3" height="30" rx="1.5" fill="#F59E0B"/>
+      <text x="16" y="19.5" fill="#F1F5F9">4+ YRS <tspan fill="#64748B">· DATA, CLOUD &amp; AI</tspan></text>
     </g>
-
-    <!-- Metric 2: MCP & Agentic Text-to-SQL -->
-    <g transform="translate(196, 0)">
-      <rect width="180" height="52" rx="8" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
-      <rect x="0" y="0" width="3" height="52" rx="1.5" fill="#38BDF8"/>
-      <text x="16" y="24" fill="#38BDF8" class="font-title" font-size="16.5" letter-spacing="0.5">MCP &amp; AGENTIC AI</text>
-      <text x="16" y="42" fill="#64748B" class="font-mono" font-size="10.5">Enterprise Text-to-SQL</text>
+    <g transform="translate(830, 74)">
+      <rect width="310" height="30" rx="7" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
+      <rect width="3" height="30" rx="1.5" fill="#38BDF8"/>
+      <text x="16" y="19.5" fill="#F1F5F9">AWS <tspan fill="#64748B">· CERTIFIED DATA ENGINEER</tspan></text>
     </g>
-
-    <!-- Metric 3: Multi-tenant Data Ecosystem -->
-    <g transform="translate(392, 0)">
-      <rect width="200" height="52" rx="8" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
-      <rect x="0" y="0" width="3" height="52" rx="1.5" fill="#F59E0B"/>
-      <text x="16" y="24" fill="#F1F5F9" class="font-title" font-size="16" letter-spacing="0.5">AWS • REDSHIFT • PG</text>
-      <text x="16" y="42" fill="#64748B" class="font-mono" font-size="10.5">Multi-Tenant AI Platforms</text>
+    <g transform="translate(830, 112)">
+      <rect width="310" height="30" rx="7" fill="#0A1326" stroke="#1E293B" stroke-width="1.2"/>
+      <rect width="3" height="30" rx="1.5" fill="#F59E0B"/>
+      <text x="16" y="19.5" fill="#F1F5F9">M.P.S. <tspan fill="#64748B">· DATA SCIENCE, UMBC</tspan></text>
     </g>
   </g>
 
-  <!-- Luminous Bottom Divider Beam -->
-  <g class="beam-animate">
-    <line x1="80" y1="335" x2="1120" y2="335" stroke="url(#gold-beam)" stroke-width="2" filter="url(#subtle-blur)"/>
-    <line x1="160" y1="335" x2="1040" y2="335" stroke="#FBBF24" stroke-width="1"/>
+  <!-- ============ Terminal window ============ -->
+  <rect x="60" y="176" width="1080" height="276" rx="10" fill="#050810" fill-opacity="0.88" stroke="#1E293B" stroke-width="1.2"/>
+  <path d="M 70 176 H 1130 A 10 10 0 0 1 1140 186 V 206 H 60 V 186 A 10 10 0 0 1 70 176 Z" fill="url(#term-bar)"/>
+  <line x1="60" y1="206" x2="1140" y2="206" stroke="#1E293B" stroke-width="1"/>
+  <circle cx="82" cy="191" r="5" fill="#EF4444" fill-opacity="0.85"/>
+  <circle cx="100" cy="191" r="5" fill="#F59E0B" fill-opacity="0.85"/>
+  <circle cx="118" cy="191" r="5" fill="#10B981" fill-opacity="0.85"/>
+  <text x="600" y="195" fill="#64748B" class="mono" font-size="11" text-anchor="middle" letter-spacing="1">krishna — ask-in-plain-english.sql</text>
+
+  <!-- Animated session (fades out at end of each 14s loop) -->
+  <g class="mono" font-size="14">
+    <animate attributeName="opacity" dur="14s" repeatCount="indefinite"
+             values="1;1;0;0" keyTimes="0;0.92;0.97;1"/>
+
+    <!-- 1. Natural-language question -->
+    <text x="88" y="240" fill="#10B981">krishna@github<tspan fill="#64748B">:</tspan><tspan fill="#38BDF8">~</tspan><tspan fill="#64748B">$</tspan></text>
+    <text x="246" y="240" fill="#F8FAFC" clip-path="url(#type-q)">ask <tspan fill="#34D399">"who is krishna, and what does he build?"</tspan></text>
+
+    <!-- 2. Thinking line -->
+    <text x="88" y="268" fill="#64748B" opacity="0">-- parsing intent → generating SQL → validating against schema ✓
+      <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.2;0.21;1"/>
+    </text>
+
+    <!-- 3. Generated SQL (typed) -->
+    <text x="88" y="296" clip-path="url(#type-sql)"><tspan class="kw">SELECT</tspan><tspan class="id"> role, focus, stack </tspan><tspan class="kw">FROM</tspan><tspan class="tbl"> krishna.career </tspan><tspan class="kw">ORDER BY</tspan><tspan class="id"> impact </tspan><tspan class="kw">DESC</tspan><tspan class="id">;</tspan></text>
+
+    <!-- 4. Result table -->
+    <g font-size="13">
+      <g opacity="0">
+        <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.46;0.47;1"/>
+        <rect x="80" y="310" width="1040" height="26" rx="4" fill="#F59E0B" fill-opacity="0.10"/>
+        <text x="94" y="328" fill="#FBBF24" font-weight="700" letter-spacing="1">ROLE</text>
+        <text x="370" y="328" fill="#FBBF24" font-weight="700" letter-spacing="1">FOCUS</text>
+        <text x="660" y="328" fill="#FBBF24" font-weight="700" letter-spacing="1">STACK</text>
+      </g>
+      <g opacity="0">
+        <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.49;0.50;1"/>
+        <text x="94" y="356" fill="#F1F5F9">Forward Deployment AI Eng.</text>
+        <text x="370" y="356" fill="#CBD5E1">Agentic AI · LLM systems</text>
+        <text x="660" y="356" fill="#94A3B8">Python · LangChain · Hugging Face · SQL</text>
+        <line x1="80" y1="365" x2="1120" y2="365" stroke="#1E293B"/>
+      </g>
+      <g opacity="0">
+        <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.52;0.53;1"/>
+        <text x="94" y="384" fill="#F1F5F9">Data Engineer</text>
+        <text x="370" y="384" fill="#CBD5E1">Cloud ETL · data quality</text>
+        <text x="660" y="384" fill="#94A3B8">AWS Glue · Redshift · PySpark · Kafka</text>
+        <line x1="80" y1="393" x2="1120" y2="393" stroke="#1E293B"/>
+      </g>
+      <g opacity="0">
+        <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.55;0.56;1"/>
+        <text x="94" y="412" fill="#F1F5F9">Data Analyst</text>
+        <text x="370" y="412" fill="#CBD5E1">BI · decision intelligence</text>
+        <text x="660" y="412" fill="#94A3B8">Tableau · Power BI · Microsoft Fabric</text>
+      </g>
+    </g>
+
+    <!-- 5. Status + cursor -->
+    <g opacity="0">
+      <animate attributeName="opacity" dur="14s" repeatCount="indefinite" values="0;0;1;1" keyTimes="0;0.59;0.60;1"/>
+      <text x="88" y="438" fill="#64748B" font-size="12.5">(3 rows) <tspan fill="#10B981">✓ validated</tspan> · <tspan class="num">0.042s</tspan></text>
+      <text x="360" y="438" fill="#10B981" font-size="12.5">krishna@github<tspan fill="#64748B">:</tspan><tspan fill="#38BDF8">~</tspan><tspan fill="#64748B">$</tspan></text>
+      <rect x="494" y="427" width="8" height="15" fill="#FBBF24" class="blink"/>
+    </g>
   </g>
 
-  <!-- Footer coordinates / Tech Tagging inside Hero -->
-  <text x="82" y="358" fill="#475569" class="font-mono" font-size="10.5">
-    LOCATION: HYDERABAD, INDIA / USA ALUMNI [UMBC]
-  </text>
-  <text x="1118" y="358" fill="#64748B" class="font-mono" font-size="10.5" text-anchor="end">
-    SYS.STATUS: ACTIVE // AGENTSQL &amp; AI PIPELINES OPERATIONAL
-  </text>
+  <!-- Footer strip -->
+  <text x="62" y="481" fill="#475569" class="mono" font-size="10.5" letter-spacing="1">LOCATION: HYDERABAD, INDIA // UMBC ALUMNI</text>
+  <text x="1138" y="481" fill="#64748B" class="mono" font-size="10.5" letter-spacing="1" text-anchor="end">QUESTION → QUERY → INSIGHT</text>
 </svg>
