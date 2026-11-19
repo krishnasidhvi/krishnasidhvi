@@ -1,0 +1,47 @@
+name: Activity Constellation
+
+on:
+  schedule:
+    - cron: "30 0 * * *" # daily, 06:00 IST
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/constellation.py"
+      - "scripts/hud.py"
+      - ".github/workflows/constellation.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: constellation
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render constellation from contribution graph
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/constellation.py --user "${{ github.repository_owner }}" --out dist/constellation.svg
+
+      # Published to a separate `output` branch (single commit, replaced each run)
+      # so the main branch history stays clean. Committed under the owner's own
+      # GitHub no-reply identity — no bot or third-party attribution.
+      - name: Publish to output branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          OWNER_ID: ${{ github.repository_owner_id }}
+          REPO: ${{ github.repository }}
+        run: |
+          cd dist
+          git init -q -b output
+          git add constellation.svg
+          git -c user.name="$OWNER" -c user.email="${OWNER_ID}+${OWNER}@users.noreply.github.com" \
+            commit -q -m "chore: refresh activity constellation"
+          git push -q -f "https://x-access-token:${TOKEN}@github.com/${REPO}.git" output

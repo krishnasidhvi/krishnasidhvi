@@ -1,73 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 110" width="100%" height="100%">
-  <defs>
-    <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#060913"/>
-      <stop offset="50%" stop-color="#0A1122"/>
-      <stop offset="100%" stop-color="#0F1B35"/>
-    </linearGradient>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 170" width="100%" role="img" aria-label="End of transmission">
+<title>End of transmission</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#03060D"/><stop offset=".55" stop-color="#070D1A"/><stop offset="1" stop-color="#0D1830"/>
+</linearGradient>
+<radialGradient id="glowA" cx="88%" cy="0%" r="70%">
+  <stop offset="0" stop-color="#F59E0B" stop-opacity=".16"/><stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="glowB" cx="5%" cy="100%" r="60%">
+  <stop offset="0" stop-color="#0284C7" stop-opacity=".16"/><stop offset="1" stop-color="#0284C7" stop-opacity="0"/>
+</radialGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+  <path d="M32 0H0V32" fill="none" stroke="#1E293B" stroke-width=".6" stroke-opacity=".5"/>
+</pattern>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="glowBig" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
 
-    <linearGradient id="footer-beam" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#F59E0B" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#FDE68A" stop-opacity="1"/>
-      <stop offset="75%" stop-color="#F59E0B" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
-    </linearGradient>
-
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3.5" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-  </defs>
-
-  <style>
-    .footer-text {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-    .footer-mono {
-      font-family: "SF Mono", "Fira Code", "Courier New", monospace;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-    }
-    @keyframes pulse-node {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.25); opacity: 1; }
-    }
-    .diamond-pulse {
-      transform-origin: 600px 30px;
-      animation: pulse-node 3s ease-in-out infinite;
-    }
-  </style>
-
-  <!-- Background Base -->
-  <rect width="1200" height="110" rx="12" fill="url(#footer-bg)"/>
-  <rect x="1" y="1" width="1198" height="108" rx="11" fill="none" stroke="#1E293B" stroke-width="1.2" stroke-opacity="0.7"/>
-
-  <!-- Top Accent Beam Line -->
-  <line x1="120" y1="30" x2="1080" y2="30" stroke="url(#footer-beam)" stroke-width="2" filter="url(#glow)"/>
-  <line x1="240" y1="30" x2="960" y2="30" stroke="#FDE68A" stroke-width="1"/>
-
-  <!-- Center Decorative Diamond Node -->
-  <g class="diamond-pulse">
-    <polygon points="600,21 609,30 600,39 591,30" fill="#0A1122" stroke="#F59E0B" stroke-width="1.8"/>
-    <circle cx="600" cy="30" r="3" fill="#FDE68A"/>
-  </g>
-
-  <!-- Left / Right Geometric Flanks -->
-  <circle cx="120" cy="30" r="2.5" fill="#38BDF8"/>
-  <circle cx="1080" cy="30" r="2.5" fill="#38BDF8"/>
-
-  <!-- Core Message -->
-  <text x="600" y="66" fill="#F8FAFC" class="footer-text" text-anchor="middle">
-    Architecting Agentic AI &amp; Enterprise Data Platforms <tspan fill="#F59E0B">•</tspan> Transforming Complex Data Into Intelligence
-  </text>
-
-  <!-- Copyright / Attribution -->
-  <text x="600" y="88" fill="#64748B" class="footer-mono" text-anchor="middle">
-    DESIGNED WITH ROYAL NAVY &amp; AMBER GOLD SYSTEM // KRISHNA SIDHVI NEKKANTI
-  </text>
+<linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#F59E0B" stop-opacity="0"/><stop offset=".2" stop-color="#FBBF24"/><stop offset=".5" stop-color="#FDE68A"/>
+  <stop offset=".8" stop-color="#38BDF8"/><stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+</linearGradient></defs>
+<style>
+.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+.mono { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace; }
+@keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.pulse { animation: pulse 2.6s ease-in-out infinite; }
+.blink { animation: blink 1s step-end infinite; }
+</style>
+<rect width="1200" height="170" rx="14" fill="url(#bg)"/>
+<rect width="1200" height="170" rx="14" fill="url(#glowA)"/>
+<rect width="1200" height="170" rx="14" fill="url(#glowB)"/>
+<rect width="1200" height="170" rx="14" fill="url(#grid)"/>
+<rect x=".75" y=".75" width="1198.5" height="168.5" rx="13.5" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+<path d="M10 32V10H32" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.8"/><path d="M1168 10H1190V32" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.8"/><path d="M10 138V160H32" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.8"/><path d="M1168 160H1190V138" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.8"/>
+<line x1="60" x2="1140" y1="62" y2="62" stroke="#1E293B" stroke-dasharray="2 6"/>
+<path d="M60 64.51L69 64.37L78 63.97L87 63.33L96 62.45L105 61.39L114 60.22L123 59.02L132 57.92L141 57.02L150 56.45L159 56.3L168 56.65L177 57.53L186 58.94L195 60.8L204 63.02L213 65.42L222 67.81L231 69.98L240 71.69L249 72.74L258 72.96L267 72.25L276 70.56L285 67.96L294 64.58L303 60.65L312 56.47L321 52.39L330 48.78L339 46L348 44.36L357 44.1L366 45.34L375 48.09L384 52.2L393 57.42L402 63.36L411 69.55L420 75.46L429 80.58L438 84.41L447 86.57L456 86.79L465 84.96L474 81.16L483 75.62L492 68.77L501 61.13L510 53.33L519 46.03L528 39.86L537 35.36L546 32.95L555 32.87L564 35.15L573 39.63L582 45.97L591 53.64L600 62L609 70.36L618 78.03L627 84.37L636 88.85L645 91.13L654 91.05L663 88.64L672 84.14L681 77.97L690 70.67L699 62.87L708 55.23L717 48.38L726 42.84L735 39.04L744 37.21L753 37.43L762 39.59L771 43.42L780 48.54L789 54.45L798 60.64L807 66.58L816 71.8L825 75.91L834 78.66L843 79.9L852 79.64L861 78L870 75.22L879 71.61L888 67.53L897 63.35L906 59.42L915 56.04L924 53.44L933 51.75L942 51.04L951 51.26L960 52.31L969 54.02L978 56.19L987 58.58L996 60.98L1005 63.2L1014 65.06L1023 66.47L1032 67.35L1041 67.7L1050 67.55L1059 66.98L1068 66.08L1077 64.98L1086 63.78L1095 62.61L1104 61.55L1113 60.67L1122 60.03L1131 59.63L1140 59.49" fill="none" stroke="url(#wave)" stroke-width="2.2" filter="url(#glow)"><animate attributeName="d" values="M60 64.51L69 64.37L78 63.97L87 63.33L96 62.45L105 61.39L114 60.22L123 59.02L132 57.92L141 57.02L150 56.45L159 56.3L168 56.65L177 57.53L186 58.94L195 60.8L204 63.02L213 65.42L222 67.81L231 69.98L240 71.69L249 72.74L258 72.96L267 72.25L276 70.56L285 67.96L294 64.58L303 60.65L312 56.47L321 52.39L330 48.78L339 46L348 44.36L357 44.1L366 45.34L375 48.09L384 52.2L393 57.42L402 63.36L411 69.55L420 75.46L429 80.58L438 84.41L447 86.57L456 86.79L465 84.96L474 81.16L483 75.62L492 68.77L501 61.13L510 53.33L519 46.03L528 39.86L537 35.36L546 32.95L555 32.87L564 35.15L573 39.63L582 45.97L591 53.64L600 62L609 70.36L618 78.03L627 84.37L636 88.85L645 91.13L654 91.05L663 88.64L672 84.14L681 77.97L690 70.67L699 62.87L708 55.23L717 48.38L726 42.84L735 39.04L744 37.21L753 37.43L762 39.59L771 43.42L780 48.54L789 54.45L798 60.64L807 66.58L816 71.8L825 75.91L834 78.66L843 79.9L852 79.64L861 78L870 75.22L879 71.61L888 67.53L897 63.35L906 59.42L915 56.04L924 53.44L933 51.75L942 51.04L951 51.26L960 52.31L969 54.02L978 56.19L987 58.58L996 60.98L1005 63.2L1014 65.06L1023 66.47L1032 67.35L1041 67.7L1050 67.55L1059 66.98L1068 66.08L1077 64.98L1086 63.78L1095 62.61L1104 61.55L1113 60.67L1122 60.03L1131 59.63L1140 59.49;M60 64.45L69 65.23L78 65.47L87 65.09L96 64.07L105 62.55L114 60.77L123 59.04L132 57.7L141 57.04L150 57.25L159 58.37L168 60.28L177 62.69L186 65.18L195 67.29L204 68.58L213 68.76L222 67.69L231 65.47L240 62.44L249 59.1L258 56.06L267 53.9L276 53.09L285 53.88L294 56.22L303 59.77L312 63.95L321 68.02L330 71.22L339 72.9L348 72.67L357 70.48L366 66.62L375 61.74L384 56.67L393 52.36L402 49.62L411 49.02L420 50.76L429 54.6L438 59.92L447 65.79L456 71.16L465 75.02L474 76.64L483 75.66L492 72.2L501 66.82L510 60.47L519 54.27L528 49.37L537 46.65L546 46.66L555 49.41L564 54.43L573 60.85L582 67.5L591 73.2L600 76.91L609 77.97L618 76.19L627 71.89L636 65.86L645 59.18L654 53.07L663 48.6L672 46.57L681 47.28L690 50.59L699 55.85L708 62.09L717 68.19L726 73.05L735 75.85L744 76.14L753 73.93L762 69.7L771 64.26L780 58.6L789 53.73L798 50.5L807 49.4L816 50.55L825 53.65L834 58.07L843 62.98L852 67.48L861 70.8L870 72.43L879 72.15L888 70.13L897 66.8L906 62.84L915 58.96L924 55.85L933 54L942 53.65L951 54.78L960 57.07L969 60.06L978 63.18L987 65.86L996 67.68L1005 68.37L1014 67.92L1023 66.48L1032 64.38L1041 62.05L1050 59.91L1059 58.31L1068 57.48L1077 57.51L1086 58.31L1095 59.66L1104 61.29L1113 62.89L1122 64.18L1131 64.96L1140 65.16;M60 61.34L69 61.04L78 60.72L87 60.39L96 60.07L105 59.78L114 59.54L123 59.38L132 59.32L141 59.38L150 59.58L159 59.94L168 60.48L177 61.18L186 62.06L195 63.1L204 64.26L213 65.52L222 66.82L231 68.11L240 69.33L249 70.4L258 71.26L267 71.82L276 72.03L285 71.82L294 71.16L303 70.01L312 68.37L321 66.26L330 63.71L339 60.8L348 57.62L357 54.29L366 50.94L375 47.71L384 44.77L393 42.27L402 40.35L411 39.14L420 38.76L429 39.27L438 40.72L447 43.12L456 46.4L465 50.49L474 55.25L483 60.53L492 66.11L501 71.78L510 77.31L519 82.45L528 86.98L537 90.7L546 93.43L555 95.03L564 95.42L573 94.56L582 92.47L591 89.23L600 84.97L609 79.84L618 74.08L627 67.91L636 61.58L645 55.37L654 49.5L663 44.23L672 39.74L681 36.2L690 33.72L699 32.37L708 32.17L717 33.08L726 35L735 37.83L744 41.41L753 45.54L762 50.04L771 54.7L780 59.32L789 63.72L798 67.73L807 71.23L816 74.1L825 76.29L834 77.74L843 78.48L852 78.53L861 77.95L870 76.82L879 75.25L888 73.33L897 71.19L906 68.94L915 66.68L924 64.51L933 62.5L942 60.72L951 59.23L960 58.03L969 57.16L978 56.59L987 56.32L996 56.32L1005 56.54L1014 56.95L1023 57.5L1032 58.15L1041 58.86L1050 59.58L1059 60.28L1068 60.94L1077 61.52L1086 62.03L1095 62.45L1104 62.77L1113 63L1122 63.14L1131 63.21L1140 63.21;M60 59.15L69 60.19L78 62.11L87 64.14L96 65.39L105 65.25L114 63.69L123 61.26L132 58.98L141 57.85L150 58.45L159 60.64L168 63.57L177 66.01L186 66.87L195 65.67L204 62.8L213 59.4L222 56.93L231 56.51L240 58.44L249 62.02L258 65.78L267 68.11L276 67.92L285 65.17L294 60.92L303 56.94L312 54.95L321 55.91L330 59.52L339 64.35L348 68.36L357 69.8L366 67.95L375 63.49L384 58.24L393 54.42L402 53.72L411 56.53L420 61.75L429 67.23L438 70.62L447 70.42L456 66.64L465 60.81L474 55.36L483 52.63L492 53.82L501 58.49L510 64.73L519 69.89L528 71.78L537 69.56L546 64.13L555 57.75L564 53.12L573 52.21L582 55.42L591 61.4L600 67.65L609 71.52L618 71.39L627 67.32L636 61.03L645 55.19L654 52.24L663 53.4L672 58.14L681 64.45L690 69.66L699 71.6L708 69.51L717 64.32L726 58.26L735 53.86L744 52.95L753 55.81L762 61.18L771 66.77L780 70.23L789 70.19L798 66.75L807 61.45L816 56.54L825 54.04L834 54.92L843 58.69L852 63.7L861 67.82L870 69.38L879 67.84L888 63.95L897 59.43L906 56.16L915 55.44L924 57.45L933 61.23L942 65.14L951 67.57L960 67.59L969 65.32L978 61.81L987 58.57L996 56.92L1005 57.44L1014 59.79L1023 62.9L1032 65.46L1041 66.44L1050 65.55L1059 63.27L1068 60.63L1077 58.72L1086 58.28L1095 59.38L1104 61.47L1113 63.62L1122 64.95L1131 64.99L1140 63.81;M60 64.51L69 64.37L78 63.97L87 63.33L96 62.45L105 61.39L114 60.22L123 59.02L132 57.92L141 57.02L150 56.45L159 56.3L168 56.65L177 57.53L186 58.94L195 60.8L204 63.02L213 65.42L222 67.81L231 69.98L240 71.69L249 72.74L258 72.96L267 72.25L276 70.56L285 67.96L294 64.58L303 60.65L312 56.47L321 52.39L330 48.78L339 46L348 44.36L357 44.1L366 45.34L375 48.09L384 52.2L393 57.42L402 63.36L411 69.55L420 75.46L429 80.58L438 84.41L447 86.57L456 86.79L465 84.96L474 81.16L483 75.62L492 68.77L501 61.13L510 53.33L519 46.03L528 39.86L537 35.36L546 32.95L555 32.87L564 35.15L573 39.63L582 45.97L591 53.64L600 62L609 70.36L618 78.03L627 84.37L636 88.85L645 91.13L654 91.05L663 88.64L672 84.14L681 77.97L690 70.67L699 62.87L708 55.23L717 48.38L726 42.84L735 39.04L744 37.21L753 37.43L762 39.59L771 43.42L780 48.54L789 54.45L798 60.64L807 66.58L816 71.8L825 75.91L834 78.66L843 79.9L852 79.64L861 78L870 75.22L879 71.61L888 67.53L897 63.35L906 59.42L915 56.04L924 53.44L933 51.75L942 51.04L951 51.26L960 52.31L969 54.02L978 56.19L987 58.58L996 60.98L1005 63.2L1014 65.06L1023 66.47L1032 67.35L1041 67.7L1050 67.55L1059 66.98L1068 66.08L1077 64.98L1086 63.78L1095 62.61L1104 61.55L1113 60.67L1122 60.03L1131 59.63L1140 59.49" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/></path>
+<text x="600.0" y="122" text-anchor="middle" class="sans" font-size="15" font-weight="800" letter-spacing="6" fill="#F8FAFC">◢ END OF TRANSMISSION ◣</text>
+<text x="600.0" y="146" text-anchor="middle" class="mono" font-size="10.5" letter-spacing="2" fill="#64748B">KSN//OS · SESSION PERSISTS · THANKS FOR SCANNING<tspan fill="#FBBF24" class="blink"> _</tspan></text>
 </svg>
