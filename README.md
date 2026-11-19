@@ -130,30 +130,9 @@ With a background delivering high-throughput data engineering and analytics in F
 
 <img src="assets/mod/05.svg" width="100%" alt="Module 05 — Data-Flow Architecture" />
 
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'lineColor':'#F59E0B', 'primaryTextColor':'#F8FAFC', 'edgeLabelBackground':'#0A1326', 'tertiaryTextColor':'#FCA5A5'}}}%%
-flowchart LR
-    SRC["📥 <b>Sources</b><br/>APIs · transactions<br/>event streams · files"]
-    ING["⚙️ <b>Ingest &amp; Transform</b><br/>Kafka · AWS Glue<br/>PySpark · Azure Data Factory"]
-    WH[("🗄️ <b>Warehouse</b><br/>Redshift · Snowflake<br/>PostgreSQL · Databricks")]
-    QG{{"🛡️ <b>Quality Gate</b><br/>validation · reconciliation<br/>RBAC · masking"}}
-    BI["📊 <b>BI &amp; Dashboards</b><br/>Tableau · Power BI"]
-    ML["🧠 <b>ML Models</b><br/>scikit-learn · TensorFlow"]
-    LLM["🤖 <b>LLM Layer</b><br/>plain-English questions<br/>→ validated SQL"]
-
-    SRC --> ING --> WH --> QG
-    QG --> BI
-    QG --> ML
-    QG --> LLM
-    QG -. "❌ reject &amp; alert" .-> ING
-
-    classDef navy fill:#0A1326,stroke:#1E293B,color:#F8FAFC,stroke-width:1.5px
-    classDef gold fill:#0A1326,stroke:#F59E0B,color:#FDE68A,stroke-width:2px
-    classDef sky  fill:#0A1326,stroke:#38BDF8,color:#E0F2FE,stroke-width:1.5px
-    class SRC,ING navy
-    class WH,QG gold
-    class BI,ML,LLM sky
-```
+<p align="center">
+  <img src="assets/dataflow.svg" width="100%" alt="Data-flow architecture: sources (APIs, transactions, event streams, files) feed ingest and transform (Kafka, AWS Glue, PySpark, Azure Data Factory), then the warehouse (Redshift, Snowflake, PostgreSQL, Databricks), then a quality gate (validation, reconciliation, RBAC, masking) that serves BI dashboards, ML models and an LLM layer; failed checks loop back to ingest with an alert." />
+</p>
 
 <br/>
 

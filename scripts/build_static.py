@@ -503,6 +503,105 @@ def console():
 
 
 # =========================================================================
+# 4b. DATA-FLOW ARCHITECTURE
+# =========================================================================
+FLOW_MAIN = [  # x-center, title, line1, line2, colour, shape
+    (120, "SOURCES", "APIs · transactions", "event streams · files", SKY, "rect"),
+    (345, "INGEST + TRANSFORM", "Kafka · AWS Glue", "PySpark · Azure DF", SKY, "rect"),
+    (570, "WAREHOUSE", "Redshift · Snowflake", "PostgreSQL · Databricks", GOLD, "cyl"),
+    (795, "QUALITY GATE", "validation · reconciliation", "RBAC · masking", GOLD, "hex"),
+]
+FLOW_OUT = [  # y-center, title, line, colour
+    (92, "BI + DASHBOARDS", "Tableau · Power BI", GREEN),
+    (196, "ML MODELS", "scikit-learn · TensorFlow", VIOLET),
+    (300, "LLM LAYER", "plain English → validated SQL", SKY),
+]
+
+
+def dataflow():
+    W, H = 1200, 400
+    MY = 196
+    NW, NH = 180, 84
+    OX, OW, OH = 1065, 200, 62
+    rnd = random.Random(3)
+    b = [bg_body(W, H)]
+
+    def packet(d, col, dur, begin, r=3):
+        return (
+            f'<circle r="{r}" fill="{col}" filter="url(#glow)" opacity="0">'
+            f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="{f(dur)}s" begin="{f(begin)}s" repeatCount="indefinite"/>'
+            f'<animateMotion path="{d}" dur="{f(dur)}s" begin="{f(begin)}s" repeatCount="indefinite"/></circle>'
+        )
+
+    # main pipeline edges
+    for (x1, *_), (x2, *_) in zip(FLOW_MAIN, FLOW_MAIN[1:]):
+        d = f"M{x1 + NW / 2} {MY}H{x2 - NW / 2}"
+        b.append(f'<path d="{d}" stroke="{GOLD}" stroke-opacity=".45" stroke-width="1.5" fill="none"/>')
+        b.append(f'<path d="M{x2 - NW / 2 - 8} {MY - 5}L{x2 - NW / 2} {MY}L{x2 - NW / 2 - 8} {MY + 5}" stroke="{GOLD}" fill="none" stroke-width="1.5"/>')
+        for k in range(3):
+            b.append(packet(d, GOLD2, 1.8, k * .6 + rnd.uniform(0, .3)))
+    # gate → outputs
+    gx = FLOW_MAIN[-1][0] + NW / 2
+    for y, _, _, col in FLOW_OUT:
+        d = f"M{gx} {MY}C{gx + 60} {MY} {OX - OW / 2 - 60} {y} {OX - OW / 2} {y}"
+        b.append(f'<path d="{d}" stroke="{col}" stroke-opacity=".5" stroke-width="1.5" fill="none"/>')
+        for k in range(2):
+            b.append(packet(d, col, 2.0, 1.0 + k * 1.0 + rnd.uniform(0, .4)))
+    # reject loop: gate → back to ingest (underneath)
+    ix = FLOW_MAIN[1][0]
+    qx = FLOW_MAIN[-1][0]
+    rd = f"M{qx} {MY + NH / 2 + 4}C{qx} {MY + 150} {ix} {MY + 150} {ix} {MY + NH / 2 + 4}"
+    b.append(f'<path d="{rd}" stroke="{ROSE}" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="4 5" fill="none"/>')
+    b.append(f'<path d="M{ix - 5} {MY + NH / 2 + 12}L{ix} {MY + NH / 2 + 4}L{ix + 5} {MY + NH / 2 + 12}" stroke="{ROSE}" fill="none" stroke-width="1.3"/>')
+    b.append(packet(rd, ROSE, 3.2, 2.2, 3.2))
+    b.append(
+        f'<rect x="{(qx + ix) / 2 - 78}" y="{MY + 118}" width="156" height="22" rx="11" fill="{BG1}" stroke="{ROSE}" stroke-opacity=".6"/>'
+        f'<text x="{(qx + ix) / 2}" y="{MY + 133}" text-anchor="middle" class="mono" font-size="10.5" letter-spacing="1.5" fill="#FCA5A5">✕ REJECT + ALERT</text>'
+    )
+
+    # main nodes
+    for i, (x, title, l1, l2, col, shape) in enumerate(FLOW_MAIN):
+        b.append(f"<g>{appear(.15 * i, .4)}")
+        x0, y0 = x - NW / 2, MY - NH / 2
+        if shape == "rect":
+            b.append(f'<rect x="{x0}" y="{y0}" width="{NW}" height="{NH}" rx="10" fill="{BG2}" stroke="{col}" stroke-opacity=".6" stroke-width="1.3"/>')
+        elif shape == "cyl":
+            e = 9
+            b.append(
+                f'<path d="M{x0} {y0 + e}V{y0 + NH - e}A{NW / 2} {e} 0 0 0 {x0 + NW} {y0 + NH - e}V{y0 + e}" fill="{BG2}" stroke="{col}" stroke-opacity=".7" stroke-width="1.3"/>'
+                f'<ellipse cx="{x}" cy="{y0 + e}" rx="{NW / 2}" ry="{e}" fill="#0E1A33" stroke="{col}" stroke-opacity=".7" stroke-width="1.3"/>'
+            )
+        else:  # hexagon gate with scanning beam
+            s = 18
+            pts = f"{x0},{MY} {x0 + s},{y0} {x0 + NW - s},{y0} {x0 + NW},{MY} {x0 + NW - s},{y0 + NH} {x0 + s},{y0 + NH}"
+            b.append(f'<clipPath id="hexClip"><polygon points="{pts}"/></clipPath>')
+            b.append(f'<polygon points="{pts}" fill="{BG2}" stroke="{col}" stroke-width="1.6" filter="url(#glow)"/>')
+            b.append(
+                f'<rect x="{x0}" y="{y0}" width="{NW}" height="3" fill="{GOLD3}" opacity=".35" clip-path="url(#hexClip)">'
+                f'<animate attributeName="y" values="{y0};{y0 + NH};{y0}" dur="2.4s" repeatCount="indefinite"/></rect>'
+            )
+        b.append(f'<circle cx="{x0 + 16}" cy="{y0 + 16}" r="3.5" fill="{col}" class="pulse"/>')
+        b.append(f'<text x="{x}" y="{MY - 8}" text-anchor="middle" class="mono" font-size="11.5" font-weight="700" letter-spacing="1.5" fill="{TEXT}">{title}</text>')
+        b.append(f'<text x="{x}" y="{MY + 12}" text-anchor="middle" class="sans" font-size="11.5" fill="{MUTED}">{esc(l1)}</text>')
+        b.append(f'<text x="{x}" y="{MY + 28}" text-anchor="middle" class="sans" font-size="11.5" fill="{MUTED}">{esc(l2)}</text>')
+        b.append("</g>")
+    # output nodes
+    for i, (y, title, line, col) in enumerate(FLOW_OUT):
+        b.append(f"<g>{appear(.7 + .15 * i, .4)}")
+        b.append(f'<rect x="{OX - OW / 2}" y="{y - OH / 2}" width="{OW}" height="{OH}" rx="10" fill="{BG2}" stroke="{col}" stroke-opacity=".7" stroke-width="1.3"/>')
+        b.append(f'<circle cx="{OX - OW / 2 + 16}" cy="{y - OH / 2 + 16}" r="3.5" fill="{col}" class="pulse"/>')
+        b.append(f'<text x="{OX}" y="{y - 3}" text-anchor="middle" class="mono" font-size="11.5" font-weight="700" letter-spacing="1.5" fill="{TEXT}">{title}</text>')
+        b.append(f'<text x="{OX}" y="{y + 16}" text-anchor="middle" class="sans" font-size="11.5" fill="{MUTED}">{esc(line)}</text>')
+        b.append("</g>")
+    b.append(
+        f'<text x="40" y="44" class="mono" font-size="10.5" letter-spacing="2" fill="{GOLD}">RAW DATA → TRUSTED INSIGHT'
+        f'<tspan fill="{DIM}">  // packets = records in flight · failed checks loop back</tspan></text>'
+    )
+    write("dataflow.svg", doc(W, H, "\n".join(b), bg_defs(), "",
+                              "Data-flow architecture: sources, ingest and transform, warehouse, quality gate, then BI dashboards, ML models and an LLM layer; failed checks loop back to ingest."))
+
+
+# =========================================================================
 # 5. MODULE HEADERS
 # =========================================================================
 MODULES = {
@@ -617,6 +716,7 @@ if __name__ == "__main__":
     console()
     neural()
     trajectory()
+    dataflow()
     for k, v in MODULES.items():
         header(k, v)
     for k, v in BUTTONS.items():
